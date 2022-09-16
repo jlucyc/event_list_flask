@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+    
+    {% block content %}
+
+    <h1>Event List</h1>
+    <body>
+      <form action="/events" method="post">
+        <label for="Name"> Name </label>
+        <input type="text" name="name" id="name">
+
+        <!-- <label for="Description"> Description</label>
+
+        <label for="Location"> Location</label>
+
+        <label for="Guests"> Guests </label> -->
+
+
+        
+        
+        <label for = "Date"> Date</label>
+        <input type="date" name="date" id="date">
+
+          <input type="submit"
+                value="add event">      
+      </label>
+
+
+      ></form>
+
+      </body>
+
+
+        {% for event in events %}  
+        <div>
+          <p>
+            {{ event.name }}: <b> {{ event.description }} {{ event.location }}  {{ event.guest }}
+                
+
+            {% if event.done %}
+            <span> &olarr; </span>
+            {% endif %}
+
+          </p>
+        </div>
+        {% endfor %}
+    
+{% endblock %}
